@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block class %}class="sub_page"{% endblock class%}
+{% block booking_status %}active{% endblock booking_status %}
+{% block main %}
+<section class="book_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Book A Table To Celebrate with your closed ones
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <form action="{% url "Book_Cake" %}" method='POST'>{% csrf_token %}
+              <div>
+                <input type="text" class="form-control" name="user_name" placeholder="Your Name" />
+              </div>
+              <div>
+                <input type="email" class="form-control" name="user_email" placeholder="Your Email" />
+              </div>
+              <div>
+                <select class="form-control nice-select wide" name="user_cake">
+                  <option value="" disabled selected>
+                    What do you want to order?
+                  </option>
+                  <option value="cake">
+                    Cake
+                  </option>
+                  <option value="pastry">
+                    Pastry
+                  </option>
+                  <option value="customized_cake">
+                    Customized cake
+                  </option>
+                  <option value="accessories">
+                    Accessories
+                  </option>
+                  <option value="others">
+                    Others
+                  </option>
+                </select>
+              </div>
+              <div>
+                <select class="form-control nice-select wide" name="user_persons">
+                  <option value="" disabled selected>
+                    How many persons?
+                  </option>
+                  <option value="2">
+                    2
+                  </option>
+                  <option value="3">
+                    3
+                  </option>
+                  <option value="4">
+                    4
+                  </option>
+                  <option value="5">
+                    5
+                  </option>
+                </select>
+              </div>
+              <div>
+                <select class="form-control nice-select wide" name="user_occassion">
+                  <option value="" disabled selected>
+                    Whats the occasion?
+                  </option>
+                  <option value="bidthday">
+                    Birthday
+                  </option>
+                  <option value="anniversary">
+                    Anniversary
+                  </option>
+                  <option value="party">
+                    Party
+                  </option>
+                  <option value="teachers_day">
+                    Teachers Day
+                  </option>
+                  <option value="others">
+                    Others
+                  </option>
+                </select>
+              </div>
+              <div>
+                <select class="form-control nice-select wide" name="user_cakesize">
+                  <option value="" disabled selected>
+                    Cake Size?
+                  </option>
+                  <option value="1pound">
+                   1 pound
+                  </option>
+                  <option value="2pound">
+                    2 pound
+                  </option>
+                  <option value="1/2 pound">
+                    1/2 pound
+                  </option>
+                </select>
+              </div>
+              <div>
+                <input type="date" class="form-control" name="date">
+              </div>
+              <div class="btn_box">
+                <button>
+                  Book Now
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="map_container ">
+            <div id="googleMap"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock main %}

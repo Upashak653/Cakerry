@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block class %}class="sub_page"{% endblock class %}
+{% block feedback_status %}active{% endblock feedback_status %}
+{% block main %}
+<section class="book_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          SHARE your Feedback
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <form action="{% url "Feedback" %}" method='POST'>{% csrf_token %}
+              <div>
+                <input type="text" class="form-control" name="user_name" placeholder="Your Name" />
+              </div>
+              <div>
+                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="your experience" required rows="3" name="description"></textarea> 
+              </div>
+              <div>
+                <select class="form-control nice-select wide" name='user_rating'>
+                  <option value="" disabled selected>
+                    Rating
+                  </option>
+                  <option value="2">
+                    2
+                  </option>
+                  <option value="3">
+                    3
+                  </option>
+                  <option value="4">
+                    4
+                  </option>
+                  <option value="5">
+                    5
+                  </option>
+                </select>
+              </div>
+              <div class="btn_box">
+                <button>
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="map_container ">
+            <div >
+                <img src=" {% static 'images/th.jpeg' %} " alt="" >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock main %}
